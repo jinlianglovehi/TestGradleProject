@@ -11,10 +11,22 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
+
+//      release 版本
         release {
             minifyEnabled false
+            buildConfigField "String", "CustomValue",'"releaseType"'
+            buildConfigField "boolean","LOG_DEBUG","false"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+// debug 版本
+        debug {
+            buildConfigField "String", "CustomValue",'"buildType"'
+            buildConfigField "boolean","LOG_DEBUG","true"
+        }
+
     }
 }
 
