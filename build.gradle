@@ -1,0 +1,57 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+//编译第一个function
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+task hellofun << {
+    println 'Hello world! Funs'
+}
+
+
+task intro(dependsOn: hello) << {
+    println "I'm Gradle"
+}
+
+
+4.times { counter ->
+    task "task$counter" << {
+       println( " Ia am task  number :$counter")
+    }
+}
+
+
+//  输入的 函数的优先级的方法的
+
+
+task taskinfo << {
+
+    println(" task info content ")
+
+}
+
